@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="cd &quot;$(ProjectDir)Model&quot;&#xD;&#xA;xsd &quot;ZipInfoSchema.xsd&quot; /c /edb /n:ZippingWorker_Client.Model" />
+  </Target>
+
+</Project>

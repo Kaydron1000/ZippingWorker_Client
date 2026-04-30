@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zippingfiles>
+  <zipfilename>example-archive</zipfilename>
+  <zipfiledirectory>%APPDIR%\zipped</zipfiledirectory>
+  <zipcompressionlevel>ultra</zipcompressionlevel>
+  <validatezipping>true</validatezipping>
+  <deleteinputfiles>false</deleteinputfiles>
+  <driveletters>
+    <driveletter driveletter="C:" drivepath="C:\" />
+  </driveletters>
+  <zipfiles>
+	  <fileinfo filelocation="E:\Downloads\nERD\NClass.CodeGenerator.dll" internalziplocation="nERD\NClass.CodeGenerator.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\NClass.CodeGenerator.dll.config" internalziplocation="nERD\NClass.CodeGenerator.dll.config" />
+	  <fileinfo filelocation="E:\Downloads\nERD\NClass.Core.dll" internalziplocation="nERD\NClass.Core.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\NClass.CSharp.dll" internalziplocation="nERD\NClass.CSharp.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\NClass.DiagramEditor.dll" internalziplocation="nERD\NClass.DiagramEditor.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\NClass.DiagramEditor.dll.config" internalziplocation="nERD\NClass.DiagramEditor.dll.config" />
+	  <fileinfo filelocation="E:\Downloads\nERD\NClass.EntityRelationshipDiagram.dll" internalziplocation="nERD\NClass.EntityRelationshipDiagram.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\nclass.ico" internalziplocation="nERD\nclass.ico" />
+	  <fileinfo filelocation="E:\Downloads\nERD\NClass.StateTransitionDiagram.dll" internalziplocation="nERD\NClass.StateTransitionDiagram.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\NClass.Translations.dll" internalziplocation="nERD\NClass.Translations.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\nERD.exe" internalziplocation="nERD\nERD.exe" />
+	  <fileinfo filelocation="E:\Downloads\nERD\nERD.exe.config" internalziplocation="nERD\nERD.exe.config" />
+	  <fileinfo filelocation="E:\Downloads\nERD\de\NClass.Translations.resources.dll" internalziplocation="nERD\de\NClass.Translations.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\es\NClass.Translations.resources.dll" internalziplocation="nERD\es\NClass.Translations.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\hu\NClass.Translations.resources.dll" internalziplocation="nERD\hu\NClass.Translations.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\AssemblyImport.dll" internalziplocation="nERD\Plugins\AssemblyImport.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\AssemblyImport.dll.config" internalziplocation="nERD\Plugins\AssemblyImport.dll.config" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\EpForceDirectedGraph.cs.dll" internalziplocation="nERD\Plugins\EpForceDirectedGraph.cs.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\Layouts.dll" internalziplocation="nERD\Plugins\Layouts.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\NClass.CodeGenerator.dll" internalziplocation="nERD\Plugins\NClass.CodeGenerator.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\NClass.CodeGenerator.dll.config" internalziplocation="nERD\Plugins\NClass.CodeGenerator.dll.config" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\NClass.Core.dll" internalziplocation="nERD\Plugins\NClass.Core.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\NClass.CSharp.dll" internalziplocation="nERD\Plugins\NClass.CSharp.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\NClass.DiagramEditor.dll" internalziplocation="nERD\Plugins\NClass.DiagramEditor.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\NClass.DiagramEditor.dll.config" internalziplocation="nERD\Plugins\NClass.DiagramEditor.dll.config" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\NClass.EntityRelationshipDiagram.dll" internalziplocation="nERD\Plugins\NClass.EntityRelationshipDiagram.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\nclass.ico" internalziplocation="nERD\Plugins\nclass.ico" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\NClass.StateTransitionDiagram.dll" internalziplocation="nERD\Plugins\NClass.StateTransitionDiagram.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\NClass.Translations.dll" internalziplocation="nERD\Plugins\NClass.Translations.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\nERD.exe" internalziplocation="nERD\Plugins\nERD.exe" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\nERD.exe.config" internalziplocation="nERD\Plugins\nERD.exe.config" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\NReflect.dll" internalziplocation="nERD\Plugins\NReflect.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\PDFExport.dll" internalziplocation="nERD\Plugins\PDFExport.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\PDFExport.dll.config" internalziplocation="nERD\Plugins\PDFExport.dll.config" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\PdfSharp.dll" internalziplocation="nERD\Plugins\PdfSharp.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\de\AssemblyImport.resources.dll" internalziplocation="nERD\Plugins\de\AssemblyImport.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\de\NClass.Translations.resources.dll" internalziplocation="nERD\Plugins\de\NClass.Translations.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\de\PDFExport.resources.dll" internalziplocation="nERD\Plugins\de\PDFExport.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\es\NClass.Translations.resources.dll" internalziplocation="nERD\Plugins\es\NClass.Translations.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\hu\NClass.Translations.resources.dll" internalziplocation="nERD\Plugins\hu\NClass.Translations.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\pt-BR\NClass.Translations.resources.dll" internalziplocation="nERD\Plugins\pt-BR\NClass.Translations.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\ru\NClass.Translations.resources.dll" internalziplocation="nERD\Plugins\ru\NClass.Translations.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\Templates\csproj.template" internalziplocation="nERD\Plugins\Templates\csproj.template" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\Templates\sln.template" internalziplocation="nERD\Plugins\Templates\sln.template" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Plugins\zh-CN\NClass.Translations.resources.dll" internalziplocation="nERD\Plugins\zh-CN\NClass.Translations.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\pt-BR\NClass.Translations.resources.dll" internalziplocation="nERD\pt-BR\NClass.Translations.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\ru\NClass.Translations.resources.dll" internalziplocation="nERD\ru\NClass.Translations.resources.dll" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Templates\csproj.template" internalziplocation="nERD\Templates\csproj.template" />
+	  <fileinfo filelocation="E:\Downloads\nERD\Templates\sln.template" internalziplocation="nERD\Templates\sln.template" />
+	  <fileinfo filelocation="E:\Downloads\nERD\zh-CN\NClass.Translations.resources.dll" internalziplocation="nERD\zh-CN\NClass.Translations.resources.dll" />
+  </zipfiles>
+</zippingfiles>

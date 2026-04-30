@@ -113,14 +113,14 @@ namespace ZippingWorker_Client.Examples
             var zipInfo = new ZipInfoType
             {
                 zipfilename = "manual-archive.zip",
-                zipfilelocation = @"C:\output",
+                zipfiledirectory = @"C:\output",
                 zipcompressionlevel = CompressionLevelEnumType.ultra,
                 validatezipping = true,
                 deleteinputfiles = false,
                 driveletters = new[]
                 {
-                    new DriveLetterType { driveLetter = "C:", drivePath = @"E:\Data" },
-                    new DriveLetterType { driveLetter = "D:", drivePath = @"E:\OtherData" }
+                    new DriveLetterType { driveletter = "C:", drivepath = @"E:\Data" },
+                    new DriveLetterType { driveletter = "D:", drivepath = @"E:\OtherData" }
                 },
                 zipfiles = new[]
                 {

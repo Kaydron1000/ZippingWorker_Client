@@ -70,6 +70,9 @@ namespace ZippingWorker_Client
         /// </summary>
         private static byte[] SerializeToXmlBytes(ZipInfoType zipInfo)
         {
+            // Resolve environment variables before serialization
+            zipInfo.PrepareForSerialization();
+
             var serializer = new XmlSerializer(typeof(ZipInfoType));
             using var ms = new MemoryStream();
             serializer.Serialize(ms, zipInfo);
@@ -91,6 +94,9 @@ namespace ZippingWorker_Client
         /// </summary>
         public static string SerializeToXmlString(ZipInfoType zipInfo)
         {
+            // Resolve environment variables before serialization
+            zipInfo.PrepareForSerialization();
+
             var serializer = new XmlSerializer(typeof(ZipInfoType));
             using var sw = new StringWriter();
             serializer.Serialize(sw, zipInfo);

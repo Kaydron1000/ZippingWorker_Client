@@ -34,7 +34,7 @@ namespace ZippingWorker_Client
         /// </summary>
         public ZipRequestBuilder WithZipFileLocation(string location)
         {
-            _zipInfo.zipfilelocation = location;
+            _zipInfo.zipfiledirectory = location;
             return this;
         }
 
@@ -87,8 +87,8 @@ namespace ZippingWorker_Client
 
             _driveLetters.Add(new DriveLetterType
             {
-                driveLetter = driveLetter,
-                drivePath = drivePath
+                driveletter = driveLetter,
+                drivepath = drivePath
             });
             return this;
         }
@@ -108,8 +108,8 @@ namespace ZippingWorker_Client
                 var driveLetter = drive.Name.TrimEnd('\\');
                 _driveLetters.Add(new DriveLetterType
                 {
-                    driveLetter = driveLetter,
-                    drivePath = drive.RootDirectory.FullName
+                    driveletter = driveLetter,
+                    drivepath = drive.RootDirectory.FullName
                 });
             }
         }

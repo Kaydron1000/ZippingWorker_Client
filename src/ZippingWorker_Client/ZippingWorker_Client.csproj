@@ -10,4 +10,12 @@
     <Exec Command="cd &quot;$(ProjectDir)Model&quot;&#xD;&#xA;xsd &quot;ZipInfoSchema.xsd&quot; /c /edb /n:ZippingWorker_Client.Model" />
   </Target>
 
+  <ItemGroup>
+    <None Remove="Model\ZipInfoSchema.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Model\ZipInfoSchema.xsd" />
+  </ItemGroup>
+
 </Project>

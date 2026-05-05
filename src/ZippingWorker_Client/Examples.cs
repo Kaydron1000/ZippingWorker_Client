@@ -55,8 +55,6 @@ namespace ZippingWorker_Client.Examples
             var zipRequest = ZipRequestBuilder.Create()
                 .WithZipFileName("custom-mapping-archive.zip")
                 .WithZipFileLocation(@"C:\temp\output")
-                .AddDriveLetter("C:", @"E:\TestData") // Manual mapping
-                .AddDriveLetter("D:", @"E:\OtherData") // Manual mapping
                 .AddFile(@"C:\source\file1.txt", "documents/file1.txt")
                 .Build();
 
@@ -98,7 +96,7 @@ namespace ZippingWorker_Client.Examples
                 .Build();
 
             // Show the generated XML
-            var xml = ZippingServiceClient.SerializeToXmlString(zipRequest);
+            var xml = ZippingServiceClient.SerializeToXmlString(zipRequest, "http://localhost:5000");
             Console.WriteLine("Generated XML:");
             Console.WriteLine(xml);
         }
@@ -117,11 +115,6 @@ namespace ZippingWorker_Client.Examples
                 zipcompressionlevel = CompressionLevelEnumType.ultra,
                 validatezipping = true,
                 deleteinputfiles = false,
-                driveletters = new[]
-                {
-                    new DriveLetterType { driveletter = "C:", drivepath = @"E:\Data" },
-                    new DriveLetterType { driveletter = "D:", drivepath = @"E:\OtherData" }
-                },
                 zipfiles = new[]
                 {
                     new FileInfoType 
@@ -139,7 +132,7 @@ namespace ZippingWorker_Client.Examples
                 }
             };
 
-            var xml = ZippingServiceClient.SerializeToXmlString(zipInfo);
+            var xml = ZippingServiceClient.SerializeToXmlString(zipInfo, "http://localhost:5000");
             Console.WriteLine("Generated XML:");
             Console.WriteLine(xml);
 
@@ -167,7 +160,6 @@ namespace ZippingWorker_Client.Examples
             var zipRequest = ZipRequestBuilder.Create()
                 .WithZipFileName("large-archive.zip")
                 .WithZipFileLocation(@"C:\output")
-                .AddDriveLetter("C:", @"E:\Data")
                 .AddFile(@"C:\large-file.iso", "large-file.iso")
                 .Build();
 

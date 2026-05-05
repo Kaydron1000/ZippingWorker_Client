@@ -31,7 +31,7 @@ namespace ZippingWorker_Client.Model
         /// <summary>
         /// Call before serialization to resolve environment variables
         /// </summary>
-        public void PrepareForSerialization()
+        public void PrepareForSerialization(string zippingServiceIpAddress)
         {
             zipfiledirectory = ResolvedZipFileDirectory;
 
@@ -42,6 +42,34 @@ namespace ZippingWorker_Client.Model
                 {
                     file.PrepareForSerialization();
                 }
+            }
+
+            // Add drive UNC paths
+            if (this.driveletters == null)
+                this.driveletters = zippingServiceIpAddress.GetLocalDriveUNCPaths().ToArray();
+            else
+            {
+                List<DriveLetterType> existingDriveLetters = new List<DriveLetterType>(this.driveletters);
+                List<DriveLetterType> localDriveUNCPaths = zippingServiceIpAddress.GetLocalDriveUNCPaths();
+                foreach (DriveLetterType uncPath in localDriveUNCPaths)
+                {
+                    var existingDrive = existingDriveLetters.SingleOrDefault(o => o.driveletter == uncPath.driveletter);
+                    if (existingDrive == null)
+                    {
+                        existingDriveLetters.Add(uncPath);
+                    }
+                    else
+                    {
+                        if (existingDrive.drivepath != uncPath.drivepath)
+                        {
+                            // state warning - this means the user provided a drive letter mapping that conflicts with the auto-detected UNC path for that drive.
+                            // The auto-detected UNC path will be used, but the user should be made aware of the conflict.
+                            existingDrive.drivepath = uncPath.drivepath;
+                        }
+                    }
+                }
+
+                this.driveletters = existingDriveLetters.ToArray();
             }
         }
     }

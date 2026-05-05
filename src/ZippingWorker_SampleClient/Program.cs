@@ -15,7 +15,7 @@ public static class Program
     {
         try
         {
-            args = new string[] { "E:\\Code\\CSharp\\ZippingWorker_Client\\src\\ZippingWorker_SampleClient\\sample-zipinfo.xml" };
+            args = new string[] { "E:\\Code\\CSharp\\ZippingWorker_Client\\src\\ZippingWorker_SampleClient\\sample-zipinfo.xml" };       
             if (args.Length == 0)
             {
                 Console.WriteLine("Usage: ZippingWorker_SampleClient <xml-file-path> [service-url]");
@@ -61,7 +61,7 @@ public static class Program
 
             Console.WriteLine();
             Console.WriteLine($"Connecting to service at: {serviceUrl}");
-
+            
             using (var client = new ZippingServiceClient(serviceUrl))
             {
                 Console.WriteLine("Submitting zip request...");

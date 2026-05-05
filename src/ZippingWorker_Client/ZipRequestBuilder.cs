@@ -1,6 +1,9 @@
 namespace ZippingWorker_Client
 {
     using Model;
+    using System.Net;
+    using System.Net.Sockets;
+    using System.Net.NetworkInformation;
 
     /// <summary>
     /// Fluent builder for creating ZipInfoType objects
@@ -8,16 +11,15 @@ namespace ZippingWorker_Client
     public class ZipRequestBuilder
     {
         private readonly ZipInfoType _zipInfo;
-        private readonly List<DriveLetterType> _driveLetters;
         private readonly List<FileInfoType> _files;
-        private bool _autoDetectDrives;
+        private readonly List<DriveLetterType> _driveLetters;
+        private string? _zippingServiceIpAddress;
 
         public ZipRequestBuilder()
         {
             _zipInfo = new ZipInfoType();
-            _driveLetters = new List<DriveLetterType>();
             _files = new List<FileInfoType>();
-            _autoDetectDrives = true; // Auto-detect drives by default
+            _driveLetters = new List<DriveLetterType>();
         }
 
         /// <summary>
@@ -67,51 +69,25 @@ namespace ZippingWorker_Client
 
         /// <summary>
         /// Enables automatic drive letter detection from the system environment.
-        /// When enabled, all logical drives will be automatically mapped to themselves.
+        /// When enabled, all logical drives will be automatically mapped to UNC paths.
         /// This is the default behavior.
         /// </summary>
-        public ZipRequestBuilder WithAutoDriveDetection(bool autoDetect = true)
+        /// <param name="autoDetect">Whether to enable auto-detection</param>
+        /// <param name="zippingServiceIpAddress">The IP address of the zipping service (e.g., "192.168.1.22") to determine which client network interface to use</param>
+        public ZipRequestBuilder WithAutoDriveDetection(string? zippingServiceIpAddress = null)
         {
-            _autoDetectDrives = autoDetect;
-            return this;
-        }
-
-        /// <summary>
-        /// Adds a drive letter mapping. 
-        /// Note: Manually adding drive letters will disable auto-detection.
-        /// </summary>
-        public ZipRequestBuilder AddDriveLetter(string driveLetter, string drivePath)
-        {
-            // Manual drive letter addition disables auto-detection
-            _autoDetectDrives = false;
-
-            _driveLetters.Add(new DriveLetterType
-            {
-                driveletter = driveLetter,
-                drivepath = drivePath
-            });
+            _zippingServiceIpAddress = zippingServiceIpAddress;
             return this;
         }
 
         /// <summary>
         /// Automatically detects and adds all logical drives from the system.
-        /// Each drive is mapped to itself (e.g., "C:" -> "C:\")
+        /// Local drives are mapped to UNC admin shares (e.g., "C:" -> "\\{ipaddress}\c$")
+        /// Network drives are mapped to their UNC paths with IP addresses
         /// </summary>
         private void AutoDetectDrives()
         {
-            var drives = DriveInfo.GetDrives()
-                .Where(d => d.IsReady && d.DriveType != DriveType.Network)
-                .ToList();
-
-            foreach (var drive in drives)
-            {
-                var driveLetter = drive.Name.TrimEnd('\\');
-                _driveLetters.Add(new DriveLetterType
-                {
-                    driveletter = driveLetter,
-                    drivepath = drive.RootDirectory.FullName
-                });
-            }
+            _driveLetters.AddRange(_zippingServiceIpAddress.GetLocalDriveUNCPaths());
         }
 
         /// <summary>
@@ -153,10 +129,7 @@ namespace ZippingWorker_Client
                 throw new InvalidOperationException("Zip file name is required");
 
             // Auto-detect drives if enabled and no manual drives were added
-            if (_autoDetectDrives && _driveLetters.Count == 0)
-            {
-                AutoDetectDrives();
-            }
+            AutoDetectDrives();
 
             if (_driveLetters.Count == 0)
                 throw new InvalidOperationException("At least one drive letter mapping is required. Enable auto-detection or add drives manually.");

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<zippingfiles>
+<a:zippingfiles xmlns:a="http://tempuri.org/ZipInfoSchema.xsd">
   <zipfilename>example-archive</zipfilename>
   <zipfiledirectory>%APPDIR%\zipped</zipfiledirectory>
   <zipcompressionlevel>ultra</zipcompressionlevel>
   <validatezipping>true</validatezipping>
   <deleteinputfiles>false</deleteinputfiles>
-  <driveletters>
-    <driveletter driveletter="C:" drivepath="C:\" />
-  </driveletters>
+	<metadata>
+		<data name="exampleKey" value="examplevalue1"/>
+	</metadata>
   <zipfiles>
 	  <fileinfo filelocation="E:\Downloads\nERD\NClass.CodeGenerator.dll" internalziplocation="nERD\NClass.CodeGenerator.dll" />
 	  <fileinfo filelocation="E:\Downloads\nERD\NClass.CodeGenerator.dll.config" internalziplocation="nERD\NClass.CodeGenerator.dll.config" />
@@ -60,4 +60,4 @@
 	  <fileinfo filelocation="E:\Downloads\nERD\Templates\sln.template" internalziplocation="nERD\Templates\sln.template" />
 	  <fileinfo filelocation="E:\Downloads\nERD\zh-CN\NClass.Translations.resources.dll" internalziplocation="nERD\zh-CN\NClass.Translations.resources.dll" />
   </zipfiles>
-</zippingfiles>
+</a:zippingfiles>

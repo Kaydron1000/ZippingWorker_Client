@@ -40,7 +40,7 @@ namespace ZippingWorker_Client
             if (zipInfo == null)
                 throw new ArgumentNullException(nameof(zipInfo));
 
-            var bytes = SerializeToXmlBytes(zipInfo);
+            var bytes = SerializeToXmlBytes(zipInfo, _baseUrl);
             var content = new ByteArrayContent(bytes);
             content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
 
@@ -68,10 +68,10 @@ namespace ZippingWorker_Client
         /// <summary>
         /// Serializes ZipInfoType to XML byte array
         /// </summary>
-        private static byte[] SerializeToXmlBytes(ZipInfoType zipInfo)
+        private static byte[] SerializeToXmlBytes(ZipInfoType zipInfo, string zippingServiceIP)
         {
             // Resolve environment variables before serialization
-            zipInfo.PrepareForSerialization();
+            zipInfo.PrepareForSerialization(zippingServiceIP);
 
             var serializer = new XmlSerializer(typeof(ZipInfoType));
             using var ms = new MemoryStream();
@@ -92,10 +92,10 @@ namespace ZippingWorker_Client
         /// <summary>
         /// Serializes ZipInfoType to XML string
         /// </summary>
-        public static string SerializeToXmlString(ZipInfoType zipInfo)
+        public static string SerializeToXmlString(ZipInfoType zipInfo, string zippingServiceIP)
         {
             // Resolve environment variables before serialization
-            zipInfo.PrepareForSerialization();
+            zipInfo.PrepareForSerialization(zippingServiceIP);
 
             var serializer = new XmlSerializer(typeof(ZipInfoType));
             using var sw = new StringWriter();

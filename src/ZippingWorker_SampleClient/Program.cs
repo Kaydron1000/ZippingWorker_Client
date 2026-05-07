@@ -15,7 +15,7 @@ public static class Program
     {
         try
         {
-            args = new string[] { "E:\\Code\\CSharp\\ZippingWorker_Client\\src\\ZippingWorker_SampleClient\\sample-zipinfo.xml" };       
+            //args = new string[] { "E:\\Code\\CSharp\\ZippingWorker_Client\\src\\ZippingWorker_SampleClient\\sample-zipinfo.xml" };       
             if (args.Length == 0)
             {
                 Console.WriteLine("Usage: ZippingWorker_SampleClient <xml-file-path> [service-url]");
@@ -40,7 +40,7 @@ public static class Program
             }
 
             Console.WriteLine($"Loading zip information from: {xmlFilePath}");
-            ZipInfoType zipInfo = DeserializeXmlFile(xmlFilePath);
+            ZipInfoType zipInfo = xmlFilePath.ImportModel();
 
             Console.WriteLine($"Successfully loaded zip configuration:");
             Console.WriteLine($"  Zip File Name: {zipInfo.zipfilename}");
@@ -94,23 +94,5 @@ public static class Program
             Console.WriteLine(ex.StackTrace);
             return 1;
         }
-    }
-
-    private static ZipInfoType DeserializeXmlFile(string filePath)
-    {
-        string xsdFilePath = "E:\\Code\\CSharp\\ZippingWorker_Client\\src\\ZippingWorker_Client\\Model\\ZipInfoSchema.xsd";
-        // Deserialize using XML serializer (safer than BinaryFormatter)
-        ZipInfoType zipInfo = null;
-        XDocument doc = XDocument.Load(filePath);
-
-        using (XmlReader xsdreader = XmlReader.Create(xsdFilePath))
-        using (XmlReader reader = doc.CreateReader())
-        {
-            //XmlSchemaSet schemaSet = XmlExtensions.LoadSchemaSet("ZippingWorker_Service", "ZipInfoSchema.xsd");
-            var ser = new XmlOnDeserializedSerializer(typeof(ZipInfoType));
-            XmlReader xmlContentNormalized = ser.ValidateAgainstSchemaIgnoreCaseAndRootLoc(reader, xsdreader, out List<ValidationEventArgs> localErrorList, out List<ValidationEventArgs> localWarningList);
-            zipInfo = (ZipInfoType)ser.Deserialize(xmlContentNormalized);
-        }
-        return zipInfo;
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace ZippingWorker_Client
+namespace ZippingWorker_Client.Model
 {
     using System;
     using System.Collections;

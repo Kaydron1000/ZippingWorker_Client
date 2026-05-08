@@ -44,10 +44,12 @@ namespace ZippingWorker_Client
             var content = new ByteArrayContent(bytes);
             content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
 
-            return await _httpClient.PostAsync(
-                $"{_baseUrl}/api/zipinfo/binary", 
-                content, 
-                cancellationToken);
+            HttpResponseMessage response = null;
+            response = await _httpClient.PostAsync(
+                    $"{_baseUrl}/api/zipinfo/binary",
+                    content,
+                    cancellationToken);
+            return response;
         }
 
         /// <summary>
@@ -70,7 +72,7 @@ namespace ZippingWorker_Client
         /// </summary>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>HTTP response message</returns>
-        public async Task<HttpResponseMessage> GetConfigurationAsync(
+        public async Task<HttpResponseMessage> GetServiceConfigurationAsync(
             CancellationToken cancellationToken = default)
         {
             return await _httpClient.GetAsync(
@@ -83,10 +85,10 @@ namespace ZippingWorker_Client
         /// </summary>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Configuration response content</returns>
-        public async Task<string> GetConfigurationStringAsync(
+        public async Task<string> GetServiceConfigurationStringAsync(
             CancellationToken cancellationToken = default)
         {
-            var response = await GetConfigurationAsync(cancellationToken);
+            var response = await GetServiceConfigurationAsync(cancellationToken);
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStringAsync(cancellationToken);
         }

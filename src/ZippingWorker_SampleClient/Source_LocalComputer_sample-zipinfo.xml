@@ -5,9 +5,9 @@
   <zipcompressionlevel>ultra</zipcompressionlevel>
   <validatezipping>true</validatezipping>
   <deleteinputfiles>false</deleteinputfiles>
-	<metadata>
-		<data name="exampleKey" value="examplevalue1"/>
-	</metadata>
+  <metadata>
+    <data name="exampleKey" value="examplevalue1"/>
+  </metadata>
   <zipfiles>
 	  <fileinfo filelocation="E:\Downloads\nERD\NClass.CodeGenerator.dll" internalziplocation="nERD\NClass.CodeGenerator.dll" />
 	  <fileinfo filelocation="E:\Downloads\nERD\NClass.CodeGenerator.dll.config" internalziplocation="nERD\NClass.CodeGenerator.dll.config" />

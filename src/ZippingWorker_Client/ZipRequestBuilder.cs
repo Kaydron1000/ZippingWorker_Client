@@ -23,6 +23,15 @@ namespace ZippingWorker_Client
         }
 
         /// <summary>
+        /// Sets the service address
+        /// </summary>
+        public ZipRequestBuilder WithServiceAddress(string serviceAddress)
+        {
+            _zippingServiceIpAddress = serviceAddress;
+            return this;
+        }
+
+        /// <summary>
         /// Sets the output zip file name
         /// </summary>
         public ZipRequestBuilder WithZipFileName(string fileName)
@@ -64,19 +73,6 @@ namespace ZippingWorker_Client
         public ZipRequestBuilder DeleteInputFiles(bool delete = true)
         {
             _zipInfo.deleteinputfiles = delete;
-            return this;
-        }
-
-        /// <summary>
-        /// Enables automatic drive letter detection from the system environment.
-        /// When enabled, all logical drives will be automatically mapped to UNC paths.
-        /// This is the default behavior.
-        /// </summary>
-        /// <param name="autoDetect">Whether to enable auto-detection</param>
-        /// <param name="zippingServiceIpAddress">The IP address of the zipping service (e.g., "192.168.1.22") to determine which client network interface to use</param>
-        public ZipRequestBuilder WithAutoDriveDetection(string? zippingServiceIpAddress = null)
-        {
-            _zippingServiceIpAddress = zippingServiceIpAddress;
             return this;
         }
 

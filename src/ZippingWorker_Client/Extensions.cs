@@ -117,20 +117,27 @@ namespace ZippingWorker_Client
         }
 
         /// <summary>
-        /// Resolves a service address (IP or hostname) to an IPAddress
+        /// Resolves a service address (IP, hostname, or URL) to an IPAddress
         /// </summary>
         private static IPAddress? ResolveServiceIpAddress(string serviceAddress)
         {
             try
             {
+                // Extract hostname from URL if necessary
+                var hostname = serviceAddress;
+                if (Uri.TryCreate(serviceAddress, UriKind.Absolute, out var uri))
+                {
+                    hostname = uri.Host;
+                }
+
                 // Try to parse as IP address first
-                if (IPAddress.TryParse(serviceAddress, out var ipAddress))
+                if (IPAddress.TryParse(hostname, out var ipAddress))
                 {
                     return ipAddress;
                 }
 
                 // If it's not an IP, try resolving as hostname (e.g., "localhost")
-                var hostEntry = Dns.GetHostEntry(serviceAddress);
+                var hostEntry = Dns.GetHostEntry(hostname);
                 return hostEntry.AddressList
                     .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
             }

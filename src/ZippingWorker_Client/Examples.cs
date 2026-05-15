@@ -23,7 +23,7 @@ namespace ZippingWorker_Client.Examples
                 .WithZipFileName("example-archive.zip")
                 .WithZipFileLocation(@"C:\temp\output")
                 .WithCompressionLevel(CompressionLevelEnumType.ultra)
-                .WithValidation(true)
+                .WithValidation(ValidateEnumType.extract)
                 // No need to manually add drive letters - they're auto-detected!
                 .AddFile(@"C:\source\file1.txt", "documents/file1.txt")
                 .AddFile(@"C:\source\file2.pdf", "documents/file2.pdf")
@@ -90,8 +90,8 @@ namespace ZippingWorker_Client.Examples
                 .WithZipFileName("complete-backup.zip")
                 .WithZipFileLocation(@"C:\backups")
                 .WithCompressionLevel(CompressionLevelEnumType.maximum)
-                .WithValidation(true)
-                .DeleteInputFiles(false)
+                .WithValidation(ValidateEnumType.extract)
+                .DeleteInputFiles(DeleteEnumType.none)
                 .AddFiles(filesToZip)
                 .Build();
 
@@ -113,8 +113,8 @@ namespace ZippingWorker_Client.Examples
                 zipfilename = "manual-archive.zip",
                 zipfiledirectory = @"C:\output",
                 zipcompressionlevel = CompressionLevelEnumType.ultra,
-                validatezipping = true,
-                deleteinputfiles = false,
+                validatezipping = ValidateEnumType.extract,
+                deleteinputfiles = DeleteEnumType.none,
                 zipfiles = new[]
                 {
                     new FileInfoType 

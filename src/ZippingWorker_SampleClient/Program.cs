@@ -132,7 +132,7 @@ public static class Program
         _Args = new string[] { "E:\\Code\\CSharp\\ZippingWorker_Client\\src\\ZippingWorker_SampleClient\\Source_ExternalComputer_sample-zipinfo.xml", "http://192.168.1.235:5000" };
         RunZip();
         _Args = new string[] { "E:\\Code\\CSharp\\ZippingWorker_Client\\src\\ZippingWorker_SampleClient\\Source_LocalComputer_sample-zipinfo.xml", "http://192.168.1.235:5000" };
-        RunZip();
+        //RunZip();
     }
     public static void APIExample(string serviceUrl = "127.0.0.1")
     {
@@ -140,9 +140,9 @@ public static class Program
                             .WithServiceAddress(serviceUrl)
                             .WithCompressionLevel(CompressionLevelEnumType.ultra)
                             .WithZipFileLocation("FINAL_LOCATION")
-                            .WithValidation(true)
+                            .WithValidation(ValidateEnumType.extract)
                             .WithZipFileName("FINAL_ZIP_NAME")
-                            .DeleteInputFiles(true);
+                            .DeleteInputFiles(DeleteEnumType.delete);
         builder.AddFile("FILE_LOCATION", "INTERNAL_ZIP_LOCATION", "OPTIONAL_FILE_HASH");
         builder.AddFile("FILE_LOCATION", "INTERNAL_ZIP_LOCATION", "OPTIONAL_FILE_HASH");
         builder.AddFile("FILE_LOCATION", "INTERNAL_ZIP_LOCATION", "OPTIONAL_FILE_HASH");

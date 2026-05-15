@@ -61,7 +61,7 @@ namespace ZippingWorker_Client
         /// <summary>
         /// Sets whether to validate the zipping process
         /// </summary>
-        public ZipRequestBuilder WithValidation(bool validate = true)
+        public ZipRequestBuilder WithValidation(ValidateEnumType validate = ValidateEnumType.extract)
         {
             _zipInfo.validatezipping = validate;
             return this;
@@ -70,7 +70,7 @@ namespace ZippingWorker_Client
         /// <summary>
         /// Sets whether to delete input files after zipping
         /// </summary>
-        public ZipRequestBuilder DeleteInputFiles(bool delete = true)
+        public ZipRequestBuilder DeleteInputFiles(DeleteEnumType delete = DeleteEnumType.none)
         {
             _zipInfo.deleteinputfiles = delete;
             return this;

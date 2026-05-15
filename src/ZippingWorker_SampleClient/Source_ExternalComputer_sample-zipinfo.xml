@@ -3,8 +3,8 @@
   <zipfilename>example-archive</zipfilename>
   <zipfiledirectory>%APPDIR%\zipped</zipfiledirectory>
   <zipcompressionlevel>ultra</zipcompressionlevel>
-  <validatezipping>true</validatezipping>
-  <deleteinputfiles>false</deleteinputfiles>
+  <validatezipping>7zip</validatezipping>
+  <deleteinputfiles>recyclebin</deleteinputfiles>
 	<metadata>
 		<data name="exampleKey" value="examplevalue1"/>
 	</metadata>
